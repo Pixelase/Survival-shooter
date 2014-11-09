@@ -664,7 +664,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 317997094}
   m_FillRect: {fileID: 832947773}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
@@ -1110,6 +1110,7 @@ GameObject:
   - 136: {fileID: 605928499}
   - 82: {fileID: 605928498}
   - 114: {fileID: 605928497}
+  - 114: {fileID: 605928502}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1250,6 +1251,24 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &605928502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 605928495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da13545846099441a224dad28ff5d57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  currentHealth: 0
+  healthSlider: {fileID: 317997093}
+  damageImage: {fileID: 2105465741}
+  deathClip: {fileID: 8300000, guid: d36a393bca4582043982db9089e1694f, type: 3}
+  flashSpeed: 5
+  flashColour: {r: .977941155, g: .0790982023, b: .0790982023, a: .329411775}
 --- !u!1 &608926598
 GameObject:
   m_ObjectHideFlags: 0
@@ -4248,7 +4267,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: -1
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -5469,6 +5488,7 @@ GameObject:
   - 82: {fileID: 2127134402}
   - 195: {fileID: 2127134401}
   - 114: {fileID: 2127134400}
+  - 114: {fileID: 2127134408}
   m_Layer: 9
   m_Name: Zombunny
   m_TagString: Untagged
@@ -5635,3 +5655,16 @@ Transform:
   - {fileID: 970015778}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!114 &2127134408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2127134399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b785151071421024c83808d10a2206a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenAttacks: .5
+  attackDamage: 10
