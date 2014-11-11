@@ -1,8 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerHealth.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\ScoreManager.cs">
     <Files>
-      <File FileName="Assets\Scripts\Player\PlayerHealth.cs" Line="80" Column="1" />
+      <File FileName="Assets\Scripts\Managers\ScoreManager.cs" Line="15" Column="1" />
+      <File FileName="Assets\Scripts\Enemy\EnemyHealth.cs" Line="77" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
