@@ -10,17 +10,20 @@ public class MenuPauseManager : MonoBehaviour
 		Exit ();
 	}
 
-	static void Pause ()
+	void Pause ()
 	{
 		if (Input.GetKeyDown (KeyCode.P))
 		{
-			if (Time.timeScale ==1)
+			if (Time.timeScale == 1)
 			{
 				Time.timeScale = 0;
+				audio.Pause();
 			}
 			else
 			{
 				Time.timeScale = 1;
+				audio.SetScheduledStartTime(0f);
+				audio.Play();
 			}
 		}
 	}
