@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\Managers\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuManager.cs" />
      <Compile Include="Assets\Scripts\Menu\MenuPauseManager.cs" />
+     <Compile Include="Assets\Scripts\Menu\ModeManager.cs" />
      <Compile Include="Assets\Scripts\Menu\Music.cs" />
      <Compile Include="Assets\Scripts\Menu\OptionQuality.cs" />
      <Compile Include="Assets\Scripts\Menu\OptionResolution.cs" />

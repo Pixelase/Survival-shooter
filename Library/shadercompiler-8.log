@@ -1,38 +1,16 @@
 Base path: C:/Program Files (x86)/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-8-4944
+Pipe name: \\.\pipe\UnityShaderCompiler-8-1328
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=0 type=0 insize=5323 outsize=951 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_ON ok=1
+  api=0 type=0 insize=6009 outsize=1534 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=5323 outsize=1607 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+  api=8 type=1 insize=6009 outsize=4201 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=8 type=0 insize=5323 outsize=4201 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=3852 outsize=1023 kw=DIRECTIONAL ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=5323 outsize=2265 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+  api=8 type=0 insize=3852 outsize=5330 kw=SPOT ok=1
 Cmd: compileSnippet
-  api=8 type=1 insize=5323 outsize=4721 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
-Cmd: compileSnippet
-  api=8 type=1 insize=5323 outsize=6720 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_ON ok=1
-Cmd: compileSnippet
-  api=1 type=0 insize=3020 outsize=834 kw=SPOT ok=1
-Cmd: compileSnippet
-  api=1 type=0 insize=3020 outsize=815 kw=POINT_COOKIE ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=3020 outsize=1100 kw=POINT ok=1
-Cmd: compileSnippet
-  api=8 type=1 insize=3020 outsize=4656 kw=POINT_COOKIE ok=1
-Cmd: compileSnippet
-  api=0 type=0 insize=4908 outsize=1406 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
-Cmd: compileSnippet
-  api=8 type=0 insize=4908 outsize=4201 kw=LIGHTMAP_ON DIRLIGHTMAP_ON HDR_LIGHT_PREPASS_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=0 insize=4908 outsize=2867 kw=LIGHTMAP_ON DIRLIGHTMAP_ON HDR_LIGHT_PREPASS_ON ok=1
-Cmd: compileSnippet
-  api=0 type=1 insize=4908 outsize=1222 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_OFF ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=4908 outsize=2485 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
-Cmd: compileSnippet
-  api=8 type=1 insize=4908 outsize=6403 kw=LIGHTMAP_ON DIRLIGHTMAP_ON HDR_LIGHT_PREPASS_ON ok=1
+  api=8 type=1 insize=3852 outsize=4510 kw=POINT ok=1
 Unhandled exception: Readfile from pipe failed. GLE=Канал был закрыт.
 
 

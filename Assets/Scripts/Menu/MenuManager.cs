@@ -33,6 +33,11 @@ public class MenuManager : MonoBehaviour
 		Application.LoadLevel ("Option");
 	}
 
+	public void Score()
+	{
+		Application.LoadLevel ("Score");
+	}
+
 	public void OptionResolution()
 	{
 		Application.LoadLevel ("OptionResolution");
