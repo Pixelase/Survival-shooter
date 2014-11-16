@@ -8421,6 +8421,7 @@ MonoBehaviour:
   playerHealth: {fileID: 605928502}
   enemy: {fileID: 100000, guid: 6fd694fb865e5524486da2da372b9730, type: 2}
   spawnTime: 10
+  deltaSpawnTime: 10
   spawnPoints:
   - {fileID: 1961690481}
 --- !u!114 &1538302109
@@ -8437,6 +8438,7 @@ MonoBehaviour:
   playerHealth: {fileID: 605928502}
   enemy: {fileID: 100000, guid: 7bca9c2cd581dbb4f971ad087c21f5f9, type: 2}
   spawnTime: 3
+  deltaSpawnTime: 3
   spawnPoints:
   - {fileID: 389720438}
 --- !u!114 &1538302110
@@ -8453,6 +8455,7 @@ MonoBehaviour:
   playerHealth: {fileID: 605928502}
   enemy: {fileID: 100004, guid: 605abe23f76031448aa950ef556a6ad6, type: 2}
   spawnTime: 3
+  deltaSpawnTime: 3
   spawnPoints:
   - {fileID: 267661744}
 --- !u!4 &1538302111
