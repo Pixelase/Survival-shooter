@@ -9,6 +9,7 @@ public class ModeManagerReader : MonoBehaviour
 
 	void Start()
 	{
+		Initialization();
 		ReadMode();
 	}
 	
@@ -33,4 +34,11 @@ public class ModeManagerReader : MonoBehaviour
 		}
 	}
 
+	void Initialization()
+	{
+		using (StreamWriter file = new StreamWriter("Mode.ini"))
+		{
+			file.WriteLine("3\n3\n10");
+		}
+	}
 }
