@@ -33,7 +33,7 @@ public class SwitchWeapon : MonoBehaviour {
 		}
 		if(Input.GetKeyDown(KeyCode.F))
 		{	
-			if(flashlight.active) flashlight.SetActive(false);
+			if(flashlight.activeSelf) flashlight.SetActive(false);
 			else flashlight.SetActive(true);
 		}
 	}

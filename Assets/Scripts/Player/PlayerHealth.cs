@@ -16,7 +16,7 @@ public class PlayerHealth : MonoBehaviour
     Animator anim;
     AudioSource playerAudio;
     PlayerMovement playerMovement;
-    PlayerShooting playerShooting;
+	SwitchWeapon switchWeapon;
     bool isDead;
     bool damaged;
 
@@ -26,7 +26,7 @@ public class PlayerHealth : MonoBehaviour
         anim = GetComponent <Animator> ();
         playerAudio = GetComponent <AudioSource> ();
         playerMovement = GetComponent <PlayerMovement> ();
-        playerShooting = GetComponentInChildren <PlayerShooting> ();
+		switchWeapon = GetComponent<SwitchWeapon>();
         currentHealth = startingHealth;
     }
 
@@ -65,8 +65,7 @@ public class PlayerHealth : MonoBehaviour
     void Death ()
     {
         isDead = true;
-
-        playerShooting.DisableEffects ();
+		switchWeapon.enabled = false;
 
         anim.SetTrigger ("Die");
 
@@ -74,6 +73,12 @@ public class PlayerHealth : MonoBehaviour
         playerAudio.Play ();
 
         playerMovement.enabled = false;
-        playerShooting.enabled = false;
+
+		foreach(PlayerShooting playerShooting in GetComponentsInChildren <PlayerShooting> ())
+		{
+			playerShooting.DisableEffects();
+			playerShooting.enabled = false;
+		}
+
     }
 }
