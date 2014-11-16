@@ -22,11 +22,10 @@ public class Music : MonoBehaviour
 
 	void Update()
 	{
-
 		if (Application.loadedLevelName == "MainScene" || Application.loadedLevelName == "About")
 		{
 			StopPlay();
-		}
+		} 
 	}
 
 	void StopPlay()

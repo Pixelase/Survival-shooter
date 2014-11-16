@@ -10,7 +10,7 @@ public class MenuManager : MonoBehaviour
 
 	public void Exit()
 	{
-		Application.Quit ();
+	   Application.Quit ();
 	}
 
 	public void Help()
@@ -48,4 +48,8 @@ public class MenuManager : MonoBehaviour
 		Application.LoadLevel ("OptionQuality");
 	}
 
+	public void OptionMode ()
+	{
+		Application.LoadLevel ("OptionMode");
+	}
 }

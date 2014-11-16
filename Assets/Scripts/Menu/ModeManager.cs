@@ -3,13 +3,26 @@ using System.Collections;
 
 public class ModeManager : MonoBehaviour
 {
-	public void Normal ()
+	EnemyManager enemyManager;
+	GameObject newObject;
+
+	void Awake()
 	{
-		Application.LoadLevel ("MainMenu");
+		enemyManager = GetComponent <EnemyManager> ();
+	}
+
+	public void Normal()
+	{
+
 	}
 
 	public void Insanity ()
 	{
-		Application.LoadLevel ("MainMenu");
+		
+	}
+
+	void Start ()
+	{
+		newObject = GameObject.Find ("EnemyManager");
 	}
 }

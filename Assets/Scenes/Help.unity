@@ -329,7 +329,15 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 2
-  m_Text: 'Press "P" to Pause/Continue
+  m_Text: '"WASD" to Move
+
+    Press "1" to AKM 47
+
+    Press "2" to Big Gun
+
+    Press "F" to use Flashlight
+
+    Press "P" to Pause/Continue
 
     Press "M" to Menu
 
