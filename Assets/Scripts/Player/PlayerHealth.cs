@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -80,5 +81,14 @@ public class PlayerHealth : MonoBehaviour
 			playerShooting.enabled = false;
 		}
 
+		WriteScoreLog ();
     }
+
+	void WriteScoreLog()
+	{
+		using (System.IO.StreamWriter file = new System.IO.StreamWriter ("ScoreLog.log", true))
+		{
+			file.WriteLine("Time: {0} <--> Score: {1}", Math.Round(Time.timeSinceLevelLoad, 2), ScoreManager.score);
+		}
+	}
 }
