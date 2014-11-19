@@ -88,7 +88,7 @@ public class PlayerHealth : MonoBehaviour
 	{
 		using (System.IO.StreamWriter file = new System.IO.StreamWriter ("ScoreLog.log", true))
 		{
-			file.WriteLine("Time: {0} <--> Score: {1}", Math.Round(Time.timeSinceLevelLoad, 2), ScoreManager.score);
+			file.WriteLine("{0} <--> Score: {1}", DateTime.Now, ScoreManager.score);
 		}
 	}
 }
