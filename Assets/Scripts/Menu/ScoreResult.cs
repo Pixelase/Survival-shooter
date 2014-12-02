@@ -18,7 +18,7 @@ public class ScoreResult : MonoBehaviour
 	{
 		try
 		{
-			text.text = System.IO.File.ReadAllText("ScoreLog.log");
+			text.text = System.IO.File.ReadAllText("Score.log");
 		}
 		catch (Exception e)
 		{

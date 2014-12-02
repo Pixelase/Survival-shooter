@@ -1,9 +1,8 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Player\PlayerHealth.cs">
+  <MonoDevelop.Ide.Workspace />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu\ScoreResult.cs">
     <Files>
-      <File FileName="Assets\Scripts\Menu\OptionQuality.cs" Line="26" Column="11" />
-      <File FileName="Assets\Scripts\Player\PlayerHealth.cs" Line="61" Column="22" />
+      <File FileName="Assets\Scripts\Menu\ScoreResult.cs" Line="30" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

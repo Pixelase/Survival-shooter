@@ -86,7 +86,7 @@ public class PlayerHealth : MonoBehaviour
 
 	void WriteScoreLog()
 	{
-		using (System.IO.StreamWriter file = new System.IO.StreamWriter ("ScoreLog.log", true))
+		using (System.IO.StreamWriter file = new System.IO.StreamWriter ("Score.log", true))
 		{
 			file.WriteLine("Time: {0} <--> Score: {1}", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now), ScoreManager.score);
 		}
