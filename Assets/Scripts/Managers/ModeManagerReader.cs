@@ -9,7 +9,6 @@ public class ModeManagerReader : MonoBehaviour
 
 	void Start()
 	{
-		Initialization();
 		ReadMode();
 	}
 	
@@ -18,27 +17,26 @@ public class ModeManagerReader : MonoBehaviour
 		try
 		{
 			enemies = GetComponents<EnemyManager>();
-			using (StreamReader sr = new StreamReader("Mode.ini"))
+			if(File.Exists("Mode.ini"))
 			{
-				foreach(EnemyManager enemy in enemies)
+				using (StreamReader sr = new StreamReader("Mode.ini"))
 				{
-					enemy.spawnTime = int.Parse(sr.ReadLine());
-					enemy.deltaSpawnTime = enemy.spawnTime;
+					foreach(EnemyManager enemy in enemies)
+					{
+						enemy.spawnTime = int.Parse(sr.ReadLine());
+						enemy.deltaSpawnTime = enemy.spawnTime;
+					}
 				}
 			}
+			else
+			{
+				File.WriteAllText("Mode.ini", "3\n3\n10");
+			}		
 		}
 		catch (Exception e)
 		{
 			Console.WriteLine("The file could not be read:");
 			Console.WriteLine(e.Message);
-		}
-	}
-
-	void Initialization()
-	{
-		using (StreamWriter file = new StreamWriter("Mode.ini"))
-		{
-			file.WriteLine("3\n3\n10");
 		}
 	}
 }
