@@ -35,8 +35,7 @@ public class ModeManagerReader : MonoBehaviour
 		}
 		catch (Exception e)
 		{
-			Console.WriteLine("The file could not be read:");
-			Console.WriteLine(e.Message);
+			File.WriteAllText("Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - the file could not be read:\n" + e.Message.ToString() + "\n");
 		}
 	}
 }

@@ -4,13 +4,18 @@ using UnityEngine.UI;
 
 public class MenuPauseManager : MonoBehaviour
 {
-	public Text text;
-
-	void Start()
+	Text pauseText;
+	bool IsSlowMotion;
+	GameObject player;
+	SwitchWeapon switchWeapon;
+	
+	void Awake()
 	{
-		text = GetComponent <Text> ();
+		pauseText = GetComponent <Text>();
+		player = GameObject.FindGameObjectWithTag ("Player");
+		switchWeapon = player.GetComponent<SwitchWeapon>();
 	}
-
+	
 	void Update ()
 	{
 		GoToMainMenu ();
@@ -18,27 +23,35 @@ public class MenuPauseManager : MonoBehaviour
 		SlowMotion (); 
 		Exit ();
 	}
-
+	
 	void Pause ()
 	{
 		if (Input.GetKeyDown (KeyCode.P))
 		{
-			if (Time.timeScale == 1)
+			if (Time.timeScale >= 0.5)
 			{
 				Time.timeScale = 0;
 				audio.Pause();
-				//text.color.a = 255;
+				pauseText.enabled = true;
+				switchWeapon.enabled = false;
+			}
+			else if(IsSlowMotion)
+			{
+				Time.timeScale = 0.5f;
+				audio.Play();
+				pauseText.enabled = false;
+				switchWeapon.enabled = true;
 			}
 			else
 			{
 				Time.timeScale = 1;
-				audio.SetScheduledStartTime(0f);
 				audio.Play();
-				//text.color.a = 0;
+				pauseText.enabled = false;
+				switchWeapon.enabled = true;
 			}
 		}
 	}
-
+	
 	void SlowMotion ()
 	{
 		if (Input.GetKeyDown (KeyCode.O))
@@ -46,17 +59,16 @@ public class MenuPauseManager : MonoBehaviour
 			if (Time.timeScale == 1)
 			{
 				Time.timeScale = 0.5f;
-				audio.Pause();
+				IsSlowMotion = true;
 			}
-			else
+			else if(!pauseText.enabled)
 			{
 				Time.timeScale = 1;
-				audio.SetScheduledStartTime(0f);
-				audio.Play();
+				IsSlowMotion = false;
 			}
 		}
 	}
-
+	
 	static void GoToMainMenu()
 	{
 		if (Input.GetKeyDown (KeyCode.M))
@@ -64,7 +76,7 @@ public class MenuPauseManager : MonoBehaviour
 			Application.LoadLevel("MainMenu");
 		}
 	}
-
+	
 	static void Exit()
 	{
 		if (Input.GetKeyDown (KeyCode.Escape))

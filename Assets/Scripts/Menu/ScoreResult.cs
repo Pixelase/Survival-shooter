@@ -6,24 +6,23 @@ using System;
 
 public class ScoreResult : MonoBehaviour
 {
-	Text text;
+	Text menuScoreText;
 
-	void Start()
+	void Awake()
 	{
-		text = GetComponent <Text> ();
-		ReadingScoreResult ();
+		menuScoreText = GetComponent <Text> ();
+		ReadScoreResult();
 	}
 	
-	void ReadingScoreResult ()
+	void ReadScoreResult ()
 	{
 		try
 		{
-			text.text = System.IO.File.ReadAllText("Score.log");
+			menuScoreText.text = File.ReadAllText("Score.log");
 		}
 		catch (Exception e)
 		{
-			Console.WriteLine("The file could not be read:");
-			Console.WriteLine(e.Message);
+			File.WriteAllText("Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - the file could not be read:\n" + e.Message.ToString() + "\n");
 		}
 	}
 }
