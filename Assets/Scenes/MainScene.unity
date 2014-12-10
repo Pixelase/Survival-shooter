@@ -6005,6 +6005,18 @@ Prefab:
       propertyPath: damageImage
       value: 
       objectReference: {fileID: 2105465741}
+    - target: {fileID: 8200004, guid: e86aaf13fe35a88489188c5e4e006b79, type: 2}
+      propertyPath: Priority
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200004, guid: e86aaf13fe35a88489188c5e4e006b79, type: 2}
+      propertyPath: m_Volume
+      value: .713
+      objectReference: {fileID: 0}
+    - target: {fileID: 8200004, guid: e86aaf13fe35a88489188c5e4e006b79, type: 2}
+      propertyPath: MinDistance
+      value: 8.30000019
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e86aaf13fe35a88489188c5e4e006b79, type: 2}
   m_RootGameObject: {fileID: 605928495}
@@ -9048,13 +9060,13 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: aa0ffcb28f4b09e4da99cdc43e2ed2ad, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .953000009
+  m_Volume: .713
   m_Pitch: 1
   Loop: 0
   Mute: 0
-  Priority: 232
+  Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 8.30000019
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0

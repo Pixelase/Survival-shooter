@@ -7,7 +7,7 @@ public class ModeManagerReader : MonoBehaviour
 {
 	EnemyManager []enemies;
 
-	void Start()
+	void Awake()
 	{
 		ReadMode();
 	}
@@ -23,14 +23,14 @@ public class ModeManagerReader : MonoBehaviour
 				{
 					foreach(EnemyManager enemy in enemies)
 					{
-						enemy.spawnTime = int.Parse(sr.ReadLine());
+						enemy.spawnTime = float.Parse(sr.ReadLine());
 						enemy.deltaSpawnTime = enemy.spawnTime;
 					}
 				}
 			}
 			else
 			{
-				File.WriteAllText("Mode.ini", "3\n3\n10");
+				File.WriteAllText("Mode.ini", "3\n3\n10\n");
 			}		
 		}
 		catch (Exception e)

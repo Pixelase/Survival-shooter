@@ -18,8 +18,8 @@ public class ModeManager : MonoBehaviour
 		normalHellephantSpawnTime = 10f;
 
 		insanityZomBunnySpawnTime = 1.5f;
-     	insanityZomBearSpawnTime = 1.5f;
-     	insanityHellephantSpawnTime = 4f;
+     	insanityZomBearSpawnTime = 1f;
+     	insanityHellephantSpawnTime = 3f;
 	}
 
 	public void Normal()
@@ -38,7 +38,7 @@ public class ModeManager : MonoBehaviour
 	{
 		using (System.IO.StreamWriter file = new System.IO.StreamWriter("Mode.ini"))
 		{
-			file.Write("{0}\n{1}\n{2}", zombunnyST, zomBearST, hellephantST);
+			file.WriteLine("{0}\n{1}\n{2}", zombunnyST, zomBearST, hellephantST);
 		}
 	}
 }

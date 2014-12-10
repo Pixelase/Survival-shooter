@@ -1,8 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Menu\ScoreResult.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Managers\ModeManagerReader.cs">
     <Files>
+      <File FileName="Assets\Scripts\Managers\ModeManagerReader.cs" Line="43" Column="5" />
       <File FileName="Assets\Scripts\Menu\ScoreResult.cs" Line="30" Column="1" />
+      <File FileName="Assets\Scripts\Menu\ModeManager.cs" Line="26" Column="3" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
