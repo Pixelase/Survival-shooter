@@ -21,12 +21,11 @@ public class MenuPauseManager : MonoBehaviour
 		GoToMainMenu ();
 		Pause ();
 		SlowMotion (); 
-		Exit ();
 	}
 	
 	void Pause ()
 	{
-		if (Input.GetKeyDown (KeyCode.P))
+		if (Input.GetKeyDown (KeyCode.Escape))
 		{
 			if (Time.timeScale >= 0.5)
 			{
@@ -54,7 +53,7 @@ public class MenuPauseManager : MonoBehaviour
 	
 	void SlowMotion ()
 	{
-		if (Input.GetKeyDown (KeyCode.O))
+		if (Input.GetKeyDown (KeyCode.R))
 		{
 			if (Time.timeScale == 1)
 			{
@@ -74,14 +73,6 @@ public class MenuPauseManager : MonoBehaviour
 		if (Input.GetKeyDown (KeyCode.M))
 		{
 			Application.LoadLevel("MainMenu");
-		}
-	}
-	
-	static void Exit()
-	{
-		if (Input.GetKeyDown (KeyCode.Escape))
-		{
-			Application.Quit();
 		}
 	}
 }

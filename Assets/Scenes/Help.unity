@@ -190,7 +190,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 288828863}
-  m_HideIfInvisible: 0
 --- !u!1 &388225675
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +253,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 388225675}
-  m_HideIfInvisible: 0
 --- !u!1 &625460504
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,20 +335,17 @@ MonoBehaviour:
 
     Press "F" to use Flashlight
 
-    Press "P" to Pause/Continue
+    Press "Escape" to Pause/Continue
 
-    Press "O" to Slow Motion
+    Press "R" to Slow Motion
 
-    Press "M" to Menu
-
-    Press "Escape" to Quit'
+    Press "M" to Menu'
 --- !u!222 &625460508
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 625460504}
-  m_HideIfInvisible: 0
 --- !u!1 &642603164
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,6 +406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
+  m_DragThreshold: 5
 --- !u!4 &642603168
 Transform:
   m_ObjectHideFlags: 0
@@ -451,7 +447,6 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -471,6 +466,7 @@ Canvas:
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
 --- !u!224 &760186099
@@ -572,7 +568,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1927128485}
-  m_HideIfInvisible: 0
 --- !u!1 &2028908601
 GameObject:
   m_ObjectHideFlags: 0

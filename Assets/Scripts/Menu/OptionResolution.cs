@@ -18,6 +18,11 @@ public class OptionResolution : MonoBehaviour
 		Screen.SetResolution (1600, 900, Screen.fullScreen);
 	}
 
+	public void SetResolution1366 ()
+	{
+		Screen.SetResolution (1366, 768, Screen.fullScreen);
+	}
+
 	public void SetResolution1280 ()
 	{
 		Screen.SetResolution (1280, 1024, Screen.fullScreen);

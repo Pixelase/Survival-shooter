@@ -67,7 +67,7 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
 		switchWeapon.enabled = false;
-
+		Time.timeScale = 1f;
         anim.SetTrigger ("Die");
 
         playerAudio.clip = deathClip;
