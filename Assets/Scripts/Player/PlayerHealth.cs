@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using System.IO;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class PlayerHealth : MonoBehaviour
     AudioSource playerAudio;
     PlayerMovement playerMovement;
 	SwitchWeapon switchWeapon;
-    bool isDead;
+    public bool isDead;
     bool damaged;
 
 
@@ -67,7 +68,9 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = true;
 		switchWeapon.enabled = false;
+		
 		Time.timeScale = 1f;
+
         anim.SetTrigger ("Die");
 
         playerAudio.clip = deathClip;
@@ -86,9 +89,27 @@ public class PlayerHealth : MonoBehaviour
 
 	void WriteScoreLog()
 	{
-		using (System.IO.StreamWriter file = new System.IO.StreamWriter ("Score.log", true))
+		try
 		{
-			file.WriteLine("Time: {0} <--> Score: {1}", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now), ScoreManager.score);
+			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			{
+				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+			}
+			
+			using (StreamWriter sw = new StreamWriter (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Score.log", true))
+			{
+				sw.WriteLine("Time: {0} <--> Score: {1}", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now), ScoreManager.score);
+			}
+		}
+
+		catch (Exception e)
+		{
+			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			{
+				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+			}
+			
+			File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString() + "\n");
 		}
 	}
 }

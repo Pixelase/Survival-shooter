@@ -18,11 +18,19 @@ public class ScoreResult : MonoBehaviour
 	{
 		try
 		{
-			menuScoreText.text = File.ReadAllText("Score.log");
+			if(File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Score.log"))
+			{
+				menuScoreText.text = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Score.log");
+			}
 		}
 		catch (Exception e)
 		{
-			File.WriteAllText("Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - the file could not be read:\n" + e.Message.ToString() + "\n");
+			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			{
+				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+			}
+
+			File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString() + "\n");
 		}
 	}
 }

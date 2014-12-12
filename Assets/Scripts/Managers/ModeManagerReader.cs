@@ -17,9 +17,9 @@ public class ModeManagerReader : MonoBehaviour
 		try
 		{
 			enemies = GetComponents<EnemyManager>();
-			if(File.Exists("Mode.ini"))
+			if(File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Mode.ini"))
 			{
-				using (StreamReader sr = new StreamReader("Mode.ini"))
+				using (StreamReader sr = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Mode.ini"))
 				{
 					foreach(EnemyManager enemy in enemies)
 					{
@@ -30,12 +30,22 @@ public class ModeManagerReader : MonoBehaviour
 			}
 			else
 			{
-				File.WriteAllText("Mode.ini", "3\n3\n10\n");
+				if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+				{
+					Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+				}
+				File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Mode.ini", "3\n3\n10\n");
 			}		
 		}
+
 		catch (Exception e)
 		{
-			File.WriteAllText("Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - the file could not be read:\n" + e.Message.ToString() + "\n");
+			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			{
+				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+			}
+
+			File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString() + "\n");
 		}
 	}
 }

@@ -8,12 +8,14 @@ public class MenuPauseManager : MonoBehaviour
 	bool IsSlowMotion;
 	GameObject player;
 	SwitchWeapon switchWeapon;
+	PlayerHealth playerHealth;
 	
 	void Awake()
 	{
 		pauseText = GetComponent <Text>();
 		player = GameObject.FindGameObjectWithTag ("Player");
 		switchWeapon = player.GetComponent<SwitchWeapon>();
+		playerHealth = player.GetComponent<PlayerHealth>();
 	}
 	
 	void Update ()
@@ -27,26 +29,29 @@ public class MenuPauseManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown (KeyCode.Escape))
 		{
-			if (Time.timeScale >= 0.5)
+			if(!playerHealth.isDead)
 			{
-				Time.timeScale = 0;
-				audio.Pause();
-				pauseText.enabled = true;
-				switchWeapon.enabled = false;
-			}
-			else if(IsSlowMotion)
-			{
-				Time.timeScale = 0.5f;
-				audio.Play();
-				pauseText.enabled = false;
-				switchWeapon.enabled = true;
-			}
-			else
-			{
-				Time.timeScale = 1;
-				audio.Play();
-				pauseText.enabled = false;
-				switchWeapon.enabled = true;
+				if (Time.timeScale >= 0.5f)
+				{
+					Time.timeScale = 0f;
+					audio.Pause();
+					pauseText.enabled = true;
+					switchWeapon.enabled = false;
+				}
+				else if(IsSlowMotion)
+				{
+					Time.timeScale = 0.5f;
+					audio.Play();
+					pauseText.enabled = false;
+					switchWeapon.enabled = true;
+				}
+				else
+				{
+					Time.timeScale = 1f;
+					audio.Play();
+					pauseText.enabled = false;
+					switchWeapon.enabled = true;
+				}
 			}
 		}
 	}
@@ -55,14 +60,14 @@ public class MenuPauseManager : MonoBehaviour
 	{
 		if (Input.GetKeyDown (KeyCode.R))
 		{
-			if (Time.timeScale == 1)
+			if (Time.timeScale == 1f)
 			{
 				Time.timeScale = 0.5f;
 				IsSlowMotion = true;
 			}
 			else if(!pauseText.enabled)
 			{
-				Time.timeScale = 1;
+				Time.timeScale = 1f;
 				IsSlowMotion = false;
 			}
 		}

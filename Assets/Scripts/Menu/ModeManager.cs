@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.IO;
+using System;
 
 public class ModeManager : MonoBehaviour
 {
@@ -36,9 +38,27 @@ public class ModeManager : MonoBehaviour
 
 	void WriteMode(float zombunnyST, float zomBearST, float hellephantST)
 	{
-		using (System.IO.StreamWriter file = new System.IO.StreamWriter("Mode.ini"))
+		try
 		{
-			file.WriteLine("{0}\n{1}\n{2}", zombunnyST, zomBearST, hellephantST);
+			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			{
+				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+			}
+			
+			using (StreamWriter file = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Mode.ini"))
+			{
+				file.WriteLine("{0}\n{1}\n{2}", zombunnyST, zomBearST, hellephantST);
+			}
+		}
+
+		catch (Exception e)
+		{
+			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			{
+				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+			}
+			
+			File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString() + "\n");
 		}
 	}
 }
