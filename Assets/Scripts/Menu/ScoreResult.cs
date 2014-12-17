@@ -7,6 +7,7 @@ using System;
 public class ScoreResult : MonoBehaviour
 {
 	Text menuScoreText;
+	string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Survival-shooter";
 
 	void Awake()
 	{
@@ -18,19 +19,23 @@ public class ScoreResult : MonoBehaviour
 	{
 		try
 		{
-			if(File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Score.log"))
+			if(File.Exists(path + @"\Score.log"))
 			{
-				menuScoreText.text = File.ReadAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Score.log");
+				menuScoreText.text = File.ReadAllText(path + @"\Score.log");
 			}
 		}
+
 		catch (Exception e)
 		{
-			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			if(!Directory.Exists(path))
 			{
-				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+				Directory.CreateDirectory(path);
 			}
-
-			File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString() + "\n");
+			
+			using (StreamWriter sw = new StreamWriter (path + @"\Error.log", true))
+			{
+				sw.WriteLine(String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString().ToLower());
+			}
 		}
 	}
 }

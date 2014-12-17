@@ -13,6 +13,8 @@ public class ModeManager : MonoBehaviour
 	public float insanityZomBearSpawnTime;
 	public float insanityHellephantSpawnTime;
 
+	string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Survival-shooter";
+
 	void Start()
 	{
 		normalZomBunnySpawnTime = 3f;
@@ -40,25 +42,28 @@ public class ModeManager : MonoBehaviour
 	{
 		try
 		{
-			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			if(!Directory.Exists(path))
 			{
-				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+				Directory.CreateDirectory(path);
 			}
 			
-			using (StreamWriter file = new StreamWriter(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Mode.ini"))
+			using (StreamWriter sw = new StreamWriter(path + @"\Mode.ini"))
 			{
-				file.WriteLine("{0}\n{1}\n{2}", zombunnyST, zomBearST, hellephantST);
+				sw.WriteLine("{0}\n{1}\n{2}", zombunnyST, zomBearST, hellephantST);
 			}
 		}
 
 		catch (Exception e)
 		{
-			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			if(!Directory.Exists(path))
 			{
-				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+				Directory.CreateDirectory(path);
 			}
 			
-			File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString() + "\n");
+			using (StreamWriter sw = new StreamWriter (path + @"\Error.log", true))
+			{
+				sw.WriteLine(String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString().ToLower());
+			}
 		}
 	}
 }

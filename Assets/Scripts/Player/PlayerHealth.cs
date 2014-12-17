@@ -2,7 +2,17 @@
 using UnityEngine.UI;
 using System.Collections;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Text.RegularExpressions;
+
+//For reverse sorting in Sorted List or Dictionary
+class DescendingComparer<T> : IComparer<T> where T : IComparable<T>
+{
+	public int Compare(T x, T y) {
+		return y.CompareTo(x);
+	}
+}
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -21,6 +31,7 @@ public class PlayerHealth : MonoBehaviour
 	SwitchWeapon switchWeapon;
     public bool isDead;
     bool damaged;
+	string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Survival-shooter";
 
 
     void Awake ()
@@ -91,25 +102,75 @@ public class PlayerHealth : MonoBehaviour
 	{
 		try
 		{
-			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			SortedList<int, string> scores = new SortedList<int, string>(new DescendingComparer<int>());
+
+			if(!Directory.Exists(path))
 			{
-				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+				Directory.CreateDirectory(path);
 			}
-			
-			using (StreamWriter sw = new StreamWriter (Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Score.log", true))
+
+			if(File.Exists(path + @"\Score.log"))
 			{
-				sw.WriteLine("Time: {0} <--> Score: {1}", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now), ScoreManager.score);
+				foreach(string s in File.ReadAllLines(path + @"\Score.log"))
+				{
+					try
+					{
+						int key = int.Parse(Regex.Match(s, @"\d+\s*$").ToString());
+						string value = Regex.Match(s, @"\d+\.\d+\.\d+\s+\d+\:\d+").ToString();
+						scores.Add(key, value);
+					}
+
+					catch (Exception e)
+					{
+						if(!Directory.Exists(path))
+						{
+							Directory.CreateDirectory(path);
+						}
+						
+						using (StreamWriter sw = new StreamWriter (path + @"\Error.log", true))
+						{
+							sw.WriteLine(String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString().ToLower());
+						}
+					}
+				}
+			}
+
+			if(scores.ContainsKey(ScoreManager.score))
+			{
+				int index = ScoreManager.score;
+				scores[index] = String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now);
+			}
+			else
+			{
+				scores.Add(ScoreManager.score, String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now));
+			}
+
+			if(scores.Count > 12)
+			{
+				for(int i = 12; i < scores.Count; i++)
+				scores.RemoveAt(i);
+			}
+
+			using (StreamWriter sw = new StreamWriter (path + @"\Score.log"))
+			{
+				foreach(KeyValuePair<int, string> score in scores)
+				{
+					sw.WriteLine("Time: {1} <--> Score: {0}", score.Key, score.Value);
+				}
 			}
 		}
 
 		catch (Exception e)
 		{
-			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			if(!Directory.Exists(path))
 			{
-				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+				Directory.CreateDirectory(path);
 			}
-			
-			File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString() + "\n");
+
+			using (StreamWriter sw = new StreamWriter (path + @"\Error.log", true))
+			{
+				sw.WriteLine(String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString().ToLower());
+			}
 		}
 	}
 }

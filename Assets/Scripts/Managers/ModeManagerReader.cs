@@ -6,6 +6,7 @@ using System.IO;
 public class ModeManagerReader : MonoBehaviour
 {
 	EnemyManager []enemies;
+	string path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\Survival-shooter";
 
 	void Awake()
 	{
@@ -17,9 +18,9 @@ public class ModeManagerReader : MonoBehaviour
 		try
 		{
 			enemies = GetComponents<EnemyManager>();
-			if(File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Mode.ini"))
+			if(File.Exists(path + @"\Mode.ini"))
 			{
-				using (StreamReader sr = new StreamReader(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Mode.ini"))
+				using (StreamReader sr = new StreamReader(path + @"\Mode.ini"))
 				{
 					foreach(EnemyManager enemy in enemies)
 					{
@@ -30,22 +31,25 @@ public class ModeManagerReader : MonoBehaviour
 			}
 			else
 			{
-				if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+				if(!Directory.Exists(path))
 				{
-					Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+					Directory.CreateDirectory(path);
 				}
-				File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Mode.ini", "3\n3\n10\n");
+				File.WriteAllText(path + @"\Mode.ini", "3\n3\n10\n");
 			}		
 		}
 
 		catch (Exception e)
 		{
-			if(!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter"))
+			if(!Directory.Exists(path))
 			{
-				Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter");
+				Directory.CreateDirectory(path);
 			}
-
-			File.WriteAllText(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData)+@"\Survival-shooter\Error.log", String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString() + "\n");
+			
+			using (StreamWriter sw = new StreamWriter (path + @"\Error.log", true))
+			{
+				sw.WriteLine(String.Format("{0:d.M.yyyy HH:mm}", DateTime.Now) +  " - Something wrong happened: " + e.Message.ToString().ToLower());
+			}
 		}
 	}
 }
