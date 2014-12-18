@@ -1,24 +1,22 @@
 Base path: C:/Program Files (x86)/Unity/Editor/Data
-Pipe name: \\.\pipe\UnityShaderCompiler-2-4240
+Pipe name: \\.\pipe\UnityShaderCompiler-2-3728
 Cmd: getPlatforms
 Cmd: compileSnippet
-  api=8 type=0 insize=6009 outsize=5948 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=5323 outsize=951 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=8 type=0 insize=6009 outsize=8694 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF VERTEXLIGHT_ON ok=1
+  api=0 type=1 insize=5323 outsize=738 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=1 type=1 insize=6009 outsize=210 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=3020 outsize=1422 kw=SPOT ok=1
 Cmd: compileSnippet
-  api=1 type=1 insize=6009 outsize=1021 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
+  api=0 type=1 insize=3020 outsize=1004 kw=DIRECTIONAL_COOKIE ok=1
 Cmd: compileSnippet
-  api=4 type=1 insize=6009 outsize=1575 kw=DIRECTIONAL SHADOWS_SCREEN LIGHTMAP_ON DIRLIGHTMAP_OFF ok=1
+  api=0 type=0 insize=4908 outsize=1406 kw=LIGHTMAP_OFF DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
 Cmd: compileSnippet
-  api=8 type=0 insize=3852 outsize=5330 kw=POINT ok=1
+  api=0 type=1 insize=4908 outsize=1152 kw=LIGHTMAP_ON DIRLIGHTMAP_OFF HDR_LIGHT_PREPASS_ON ok=1
 Cmd: compileSnippet
-  api=0 type=0 insize=3852 outsize=1234 kw=DIRECTIONAL_COOKIE ok=1
+  api=0 type=1 insize=6009 outsize=1100 kw=DIRECTIONAL SHADOWS_OFF LIGHTMAP_OFF DIRLIGHTMAP_OFF ok=1
 Cmd: compileSnippet
-  api=1 type=1 insize=3852 outsize=1254 kw=SPOT ok=1
-Cmd: compileSnippet
-  api=4 type=1 insize=3852 outsize=3151 kw=POINT_COOKIE ok=1
+  api=0 type=1 insize=3852 outsize=1227 kw=POINT ok=1
 Unhandled exception: Readfile from pipe failed. GLE=Канал был закрыт.
 
 

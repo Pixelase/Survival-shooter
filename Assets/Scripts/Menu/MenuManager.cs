@@ -3,10 +3,18 @@ using System.Collections;
 
 public class MenuManager : MonoBehaviour 
 {
+	public Texture2D crosshair;
+
+	void Awake()
+	{
+		Cursor.SetCursor (null, Vector2.zero, CursorMode.Auto);
+	}
+
 	public void NewGame()
 	{
 		Application.LoadLevel ("MainScene");
 		Time.timeScale = 1f;
+		Cursor.SetCursor (crosshair, Vector2.zero, CursorMode.Auto);
 	}
 
 	public void Exit()
