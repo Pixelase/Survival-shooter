@@ -34,21 +34,21 @@ public class MenuPauseManager : MonoBehaviour
 				if (Time.timeScale >= 0.5f)
 				{
 					Time.timeScale = 0f;
-					audio.Pause();
+					GetComponent<AudioSource>().Pause();
 					pauseText.enabled = true;
 					switchWeapon.enabled = false;
 				}
 				else if(IsSlowMotion)
 				{
 					Time.timeScale = 0.5f;
-					audio.Play();
+					GetComponent<AudioSource>().Play();
 					pauseText.enabled = false;
 					switchWeapon.enabled = true;
 				}
 				else
 				{
 					Time.timeScale = 1f;
-					audio.Play();
+					GetComponent<AudioSource>().Play();
 					pauseText.enabled = false;
 					switchWeapon.enabled = true;
 				}

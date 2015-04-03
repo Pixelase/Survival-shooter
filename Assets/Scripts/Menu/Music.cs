@@ -17,7 +17,7 @@ public class Music : MonoBehaviour
 
 		DontDestroyOnLoad (gameObject);
 
-		audio.Play ();
+		GetComponent<AudioSource>().Play ();
 	}
 
 	void Update()
@@ -31,6 +31,6 @@ public class Music : MonoBehaviour
 	void StopPlay()
 	{
 		Destroy (gameObject);
-		audio.Pause ();
+		GetComponent<AudioSource>().Pause ();
 	}
 }
